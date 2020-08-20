@@ -26,27 +26,22 @@ namespace scrollviewer
         float count = 1;
         public MainPage()
         {
-            this.InitializeComponent();
-            btn.Content = "click me";
-            btn.Click += Btn_Click;
-
-            clr.Content = "click to clear";
-            clr.Click += Clr_Click;
-
-            viewer.ZoomMode = ZoomMode.Enabled;
-           
+            this.InitializeComponent();           
         }
-
+     
         private void Clr_Click(object sender, RoutedEventArgs e)
         {
             count = 1;
-            viewer.ChangeView(350, 350, count);
+            scrollViewer.ZoomToFactor(count);
         }
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
-            viewer.ChangeView(350, 350, count);
-            count += 1;
+            count += 0.1f;
+            var width = this.scrollViewer.ExtentWidth / 2;
+            var height = this.scrollViewer.ExtentHeight  / 2;
+
+            scrollViewer.ChangeView(width, height, count);
         }
     }
 }

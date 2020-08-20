@@ -20,15 +20,17 @@
 
             </RowDefinition>
         </Grid.RowDefinitions>
-        <Button x:Name="btn" Grid.Row="0"></Button>
-        <Button x:Name="clr" Grid.Row="1"></Button>
-        <ScrollViewer x:Name="viewer" Grid.Row="2">
-            <Grid>
-            <Image Source="Assets\EditedImage.jpg" Height="190" Width="190">
-                
-            </Image>
-            </Grid>
-        </ScrollViewer>
+        <Button x:Name="btn" Grid.Row="0" Click="Btn_Click">Zoom-In</Button>
+        <Button x:Name="clr" Grid.Row="1" Click="Clr_Click">Clear</Button>
+        <UserControl  Grid.Row="2">
+            <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"  VerticalScrollMode="Enabled" HorizontalScrollMode="Enabled"  ZoomMode="Enabled"  >
+
+                <Grid x:Name="ImageGrid" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1260" Height="350" >
+                    <Image x:Name="MyImage" Width="1260" Height="210" Source="Assets\EditedImage.jpg" RenderTransformOrigin="0.5, 0.5" />
+                </Grid>
+
+            </ScrollViewer>
+        </UserControl>
 
     </Grid>
 </Page>
